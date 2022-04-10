@@ -1,0 +1,42 @@
+@import url('http://fonts.cdnfonts.com/css/valorant');
+
+body{
+    background-color: #0f1923;
+    color: #eee
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    position: absolute;
+}
+
+#foto {
+    width: 50%;
+    margin-top: -27px;
+    /* margin-left: -50px;*/
+
+}
+
+#bg{
+    margin-top: -185px;
+    z-index: -1;
+    filter: blur(3px) opacity(60%);
+}
+
+#textos{
+    font-family: 'VALORANT', sans-serif;
+    font-size: 37px;
+    width: 760px;
+    align-self: end;
+    padding-right: 16px;
+    margin-right: 16px;
+}
+
+#nome{
+    font-size: 80px;
+    margin-bottom: -25px;
+}
