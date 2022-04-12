@@ -15,7 +15,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}/>
-      <Route path="/corpo" element={<Corpo/>}/>
+      <Route path="/agent" element={<Corpo/>}/>
       <Route path="/selection" element={<Selecao/>}/>
     </Routes>
   </BrowserRouter>,

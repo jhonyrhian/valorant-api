@@ -1,35 +1,41 @@
 .container {
     display: flex;
     justify-content: space-between;
+    padding: 20px;
 }
 
-img{
+/* #imagens{
+    margin-left: -30rem;
+} */
+
+#foto, #foto2, #bg{
     position: absolute;
 }
 
 #foto {
     z-index: 3;
     width: 50%;
-    margin-top: -27px;
-    /* margin-left: -50px;*/
+    margin-top: -47px;
 
 }
 
 #foto2 {
     z-index: 2;
     width: 50%;
-    margin-top: -29px;
-    margin-left: -40px;
-    filter: brightness(0) blur(5px) opacity(78%);
-    transform: scale(1.08)
+    margin-top: -70px;
+    margin-left: -50px;
+    filter: brightness(0) blur(5px) opacity(65%);
+    transform: scale(1.06);
+    /* transform: skew(20deg, 20deg); */
 
 }
 
 #bg{
-    transform: scale(1.5);
-    margin-top: -130px;
+    transform: scale(1.1);
+    margin-top: -200px;
+    margin-left: -55px;
     z-index: -1;
-    filter: blur(2px) opacity(60%);
+    filter: blur(0px) opacity(70%);
 }
 
 #textos{

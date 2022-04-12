@@ -3,12 +3,17 @@ import axios from "axios";
 
 import BasePage from "./BasePage";
 import LoadingScreen from "./LoadingScreen";
+import BotaoHome from "./BotaoHome"
+import {BsHouseDoor} from "react-icons/bs";
+
 
 // import "./BaseEstilo.css"
 import "./Corpo.css"
 
 
 export default class Corpo extends React.Component{
+
+
 
     state={
         resposta: null
@@ -64,6 +69,7 @@ export default class Corpo extends React.Component{
                     <img src={this.state.resposta.background} id="bg"></img>
                 </div>
 
+                <BotaoHome link="/selection"><BsHouseDoor color='white' size='3rem' /></BotaoHome>
                 <div id="textos">
                 <p id="nome">{this.state.resposta.displayName}</p>
                 <p id="descricao">{this.state.resposta.description}</p>

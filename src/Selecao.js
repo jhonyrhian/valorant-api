@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
+import {Helmet} from "react-helmet";
 
 import BasePage from "./BasePage";
 import LoadingScreen from "./LoadingScreen";
 
-// import "./BaseEstilo.css"
+ import "./BaseEstilo.css"
 import "./Selecao.css"
 import Card from "./Card"
 
@@ -51,12 +52,14 @@ export default class Selecao extends React.Component {
         }
     return (
         <BasePage>
-            <div className="container">
+            <div className="selecao_container">
+                
                 <h2>Select your agent</h2>
                 <ul>
-                    {this.state.resposta.map((dictAgents)=>{
-
-                        return <Card><a href={"/corpo/?agentid="+dictAgents.uuid }><img src={dictAgents.displayIcon}></img></a><p>{dictAgents.displayName}</p></Card>
+                    {this.state.resposta.filter((perso)=>{
+                        return perso.isPlayableCharacter==true
+                    }).map((dictAgents)=>{
+                        return <Card><a href={"/agent/?agentid="+dictAgents.uuid }><img src={dictAgents.displayIcon}></img></a><p id="agentnome">{dictAgents.displayName}</p></Card>
                     })}
                 </ul>
             </div>
