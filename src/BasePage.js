@@ -5,7 +5,9 @@ export default function BasePage (props) {
     return(
         <div>
             <div>
-                {props.children}
+                <main>
+                    {props.children}
+                </main>
             </div>
         </div>
     )

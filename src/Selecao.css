@@ -1,0 +1,48 @@
+h2{
+    font-size: 45px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    width: 185px;
+    position: relative;
+    border: 10px solid #fff;
+    border-radius: 8px;
+    filter: brightness(20%);
+    background-color: #ff4654;
+    transition: 0.3s;
+}
+
+img:hover{
+    transform: scale(1.2);
+    filter: brightness(100%);
+    cursor: pointer;
+
+}
+
+img:not(:hover){
+    transform: scale(1)
+}
+
+ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 35px;
+    padding: 0px;
+}
+
+li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    font-size: 30px;
+    margin: 20px 0
+}

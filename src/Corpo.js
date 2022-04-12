@@ -1,14 +1,16 @@
-import BasePage from "./BasePage";
 import React from "react";
 import axios from "axios";
+
+import BasePage from "./BasePage";
+import LoadingScreen from "./LoadingScreen";
+
+// import "./BaseEstilo.css"
 import "./Corpo.css"
 
 
 export default class Corpo extends React.Component{
 
     state={
-        AgentId: "f94c3b30-42be-e959-889c-5aa313dba261",
-        AgentName: undefined,
         resposta: null
     }
     AgentsId = {
@@ -33,8 +35,10 @@ export default class Corpo extends React.Component{
 
     }
     componentDidMount(){
+        var agentid = new URLSearchParams(window.location.search).get("agentid")
         
-        axios.get("https://valorant-api.com/v1/agents/"+this.AgentsId.Viper)
+        // axios.get("https://valorant-api.com/v1/agents/"+this.AgentsId.Yoru)
+        axios.get("https://valorant-api.com/v1/agents/"+agentid)
         .then((response) => {
             var resposta = response.data.data
             
@@ -46,7 +50,7 @@ export default class Corpo extends React.Component{
         if(this.state.resposta == null){
             return (
                 <BasePage>
-                    <p>Aguarde um instante</p>
+                    <LoadingScreen/>
                 </BasePage>
             )
         }
@@ -56,12 +60,13 @@ export default class Corpo extends React.Component{
             <div className="container">
                 <div id="imagens">
                     <img src={this.state.resposta.fullPortraitV2} id="foto"></img>
+                    <img src={this.state.resposta.fullPortraitV2} id="foto2"></img>
                     <img src={this.state.resposta.background} id="bg"></img>
                 </div>
 
                 <div id="textos">
                 <p id="nome">{this.state.resposta.displayName}</p>
-                <p>{this.state.resposta.description}</p>
+                <p id="descricao">{this.state.resposta.description}</p>
                 </div>
             </div>
         </BasePage>
