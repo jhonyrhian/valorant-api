@@ -5,8 +5,10 @@ import {Helmet} from "react-helmet";
 import BasePage from "./BasePage";
 import LoadingScreen from "./LoadingScreen";
 
- import "./BaseEstilo.css"
+
+
 import "./Selecao.css"
+
 import Card from "./Card"
 
 export default class Selecao extends React.Component {
@@ -59,7 +61,7 @@ export default class Selecao extends React.Component {
                     {this.state.resposta.filter((perso)=>{
                         return perso.isPlayableCharacter==true
                     }).map((dictAgents)=>{
-                        return <Card><a href={"/agent/?agentid="+dictAgents.uuid }><img src={dictAgents.displayIcon}></img></a><p id="agentnome">{dictAgents.displayName}</p></Card>
+                        return <Card><a href={"/agent/?agentid="+dictAgents.uuid }><img src={dictAgents.displayIcon}/></a><p id="agentnome">{dictAgents.displayName}</p></Card>
                     })}
                 </ul>
             </div>

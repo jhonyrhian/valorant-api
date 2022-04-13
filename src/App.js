@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import BasePage from './BasePage'
+import Selecao from './Selecao'
 import './App.css';
 
 function App() {
   return (
-    <div className="container-total">
-      <BasePage/>
-    </div>
+      <BasePage>
+        <Selecao/>
+      </BasePage>
   );
 }
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import BasePage from "./BasePage";
 import LoadingScreen from "./LoadingScreen";
 import BotaoHome from "./BotaoHome"
+
 import {BsHouseDoor} from "react-icons/bs";
 
 
@@ -64,15 +65,15 @@ export default class Corpo extends React.Component{
         <BasePage>
             <div className="container">
                 <div id="imagens">
-                    <img src={this.state.resposta.fullPortraitV2} id="foto"></img>
-                    <img src={this.state.resposta.fullPortraitV2} id="foto2"></img>
+                    <img src={this.state.resposta.fullPortraitV2} id="foto" className="visible"></img>
+                    <img src={this.state.resposta.fullPortraitV2} id="foto2" className="visible"></img>
                     <img src={this.state.resposta.background} id="bg"></img>
                 </div>
 
-                <BotaoHome link="/selection"><BsHouseDoor color='white' size='3rem' /></BotaoHome>
+                <BotaoHome link="/"><BsHouseDoor color='white' size='3rem' /></BotaoHome>
                 <div id="textos">
-                <p id="nome">{this.state.resposta.displayName}</p>
-                <p id="descricao">{this.state.resposta.description}</p>
+                    <p id="nome">{this.state.resposta.displayName}</p>
+                    <p id="descricao">{this.state.resposta.description}</p>
                 </div>
             </div>
         </BasePage>

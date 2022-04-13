@@ -4,22 +4,18 @@
     padding: 20px;
 }
 
-/* #imagens{
-    margin-left: -30rem;
-} */
-
 #foto, #foto2, #bg{
     position: absolute;
 }
 
-#foto {
+#foto, #foto3d{
     z-index: 3;
     width: 50%;
     margin-top: -47px;
 
 }
 
-#foto2 {
+#foto2{
     z-index: 2;
     width: 50%;
     margin-top: -70px;
@@ -47,6 +43,7 @@
     margin-right: 16px;
 }
 
+
 #nome{
     font-family: 'VALORANT', sans-serif;
     font-size: 80px;
@@ -56,4 +53,12 @@
 
 #descricao{
     line-height: 40px;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible{
+    display: block;
 }
