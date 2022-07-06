@@ -8,18 +8,17 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Corpo from "./Corpo";
-import Selecao from "./Selecao"
+import AgentPicker from "./paginas/AgentPicker"
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}/>
-      <Route path="/agent" element={<Corpo/>}/>
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+  ReactDOM.render(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<App />}/>
+        <Route path="/" element={<AgentPicker />}/>
+      </Routes>
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

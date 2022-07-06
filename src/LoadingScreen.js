@@ -7,7 +7,7 @@ import "./LoadingScreen.css"
 export default function LoadingScreen(){
     return(
     <div className="loading">
-        <p>Aguarde um instante</p>
+        <p>Aguarde um instante...</p>
         <ImSpinner2 color='white' size='5rem' className="spinner" />
     </div>)
 }

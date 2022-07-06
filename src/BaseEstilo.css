@@ -4,10 +4,12 @@
 body{
     background-color: #101822;
     color: #eee;
-    /* font-family: 'VALORANT', sans-serif; */
     text-transform: uppercase;
-    /* font-family: 'Archivo Black', sans-serif; */
     font-family: 'VALORANT', sans-serif;
+}
+
+main{
+    height: 100vh;
 }
 
 .loading{
