@@ -5,15 +5,12 @@ import PickTable from "../componentes/PickTable"
 import AgentPicDiv from "../componentes/AgentPicDiv"
 import TextWrapperStyled from "../componentes/TextWrapperStyled"
 import Checkbox from "../componentes/Checkbox"
+import AgentIcon from "../componentes/AgentIcon"
 
 import BasePage from "../BasePage";
 import LoadingScreen from "../LoadingScreen";
 
 import "../Selecao.css"
-
-
-
-// import "../Selecao.css"
 
 import Card from "../Card"
 
@@ -47,54 +44,52 @@ export default function AgentPicker(){
                 "707eab51-4836-f488-046a-cda6bf494859",
                 "7f94d92c-4234-0a36-9646-3a87eb8b5c89"]
 
-    useEffect(()=>{
-        if(resposta == null){
-        axios.get("https://valorant-api.com/v1/agents")
-        .then((response)=>{
-            // var resposta = response.data.data
-            setResposta(response.data.data)
-            console.log(resposta)
-        })}
-    })
+                
+                function defineAgente(foto, foto3D, BG, nome, descricao){
+                    if(indice == '0'){
+                        setFoto(foto)
+                    }else{
+                        setFoto(foto3D)
+                    }
+                    setImg(foto)
+                    setImg3D(foto3D)
+                    setImgBG(BG)
+                    setNome(nome)
+                    setDescricao(descricao)
+                }
+                
+                
+                function trocaDimensao(){
+                    if(indice == '0'){
+                        setFoto(img3D)
+                        setIndice('1')
+                        console.log("3D")
+                    }else{
+                        setFoto(img)
+                        setIndice('0')
+                        console.log("2D")
+                    }
+                }
+                
 
-        function defineAgente(foto, foto3D, BG, nome, descricao){
-            if(indice == '0'){
-                setFoto(foto)
-            }else{
-                setFoto(foto3D)
-            }
-            setImg(foto)
-            setImg3D(foto3D)
-            setImgBG(BG)
-            setNome(nome)
-            setDescricao(descricao)
-        }
+                if(resposta == null){
+                axios.get("https://valorant-api.com/v1/agents")
+                .then((response)=>{
+                    setResposta(response.data.data)
+                })}
 
-        function trocaDimensao(){
-            if(indice == '0'){
-                setFoto(img3D)
-                setIndice('1')
-                console.log("3D")
-            }else{
-                setFoto(img)
-                setIndice('0')
-                console.log("2D")
-            }
-        }
-       
-
-        if(resposta == null){
-            return (
-                <BasePage>
+                if(resposta == null){
+                    return (
+                        <BasePage>
                     <LoadingScreen/>
                 </BasePage>
             )
         }
+        
     return (
         <BasePage>
         <Checkbox indice={indice} onChangeFunction={trocaDimensao}></Checkbox>
             <div className="selecao_container">
-                
                 <h2>Select your agent</h2>
                 <AgentPicDiv nome={nome} src={foto} ></AgentPicDiv>
                 <AgentPicDiv posicao= "BG" src={imgBG} ></AgentPicDiv>
@@ -106,11 +101,10 @@ export default function AgentPicker(){
                 {resposta.filter((perso)=>{
                         return perso.isPlayableCharacter==true
                     }).map((dictAgents)=>{
-                        // return <Card ><a onClick={()=>{setImg(dictAgents.fullPortraitV2);setImgBG(dictAgents.background)}} /*href={"/agent/?agentid="+dictAgents.uuid}*/><img src={dictAgents.displayIcon}/></a></Card>
-                        // return <Card ><img src={dictAgents.displayIcon} onClick={()=>{setImg(dictAgents.fullPortraitV2);setImgBG(dictAgents.background)}}/></Card>
-                        return <Card ><img src={dictAgents.displayIcon}      onClick={()=>{defineAgente(dictAgents.fullPortraitV2, dictAgents.fullPortrait, dictAgents.background, dictAgents.displayName, dictAgents.description)}}/></Card>
+                        return <Card ><AgentIcon src={dictAgents.displayIcon} onClick={()=>{defineAgente(dictAgents.fullPortraitV2, dictAgents.fullPortrait, dictAgents.background, dictAgents.displayName, dictAgents.description)}}/></Card>
                     })}
                 </PickTable>
             </div>
         </BasePage>
-    )}
+    )
+}
