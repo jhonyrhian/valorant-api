@@ -1,6 +1,8 @@
 # Valorant-API
 
-Esse é um projeto React que uso axios para fazer requisições em uma API pública para conseguir as informações da página
+Este é um projeto React onde uso o Axios para fazer requisições a uma API pública para obter as informações da página
+
+This is a React project where I use Axios to make requests to a public API to get the page information
 
 ## Link da API
 
